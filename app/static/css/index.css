@@ -24,6 +24,10 @@ body {
     height: 100%;
 }
 
+a {
+    text-decoration: none;
+}
+
 .title {
     font-size: 3rem;
     font-family: "Mukta-Bold", serif;

@@ -16,7 +16,7 @@
     <div class="step">
         <span class="number">1</span>
         <div class="content">
-            <div class="sentence">Add <span class="click-to-copy highlight">send@kindle.aneureka.cn</span> to your <a href="https://www.amazon.cn", target="_blank">Amazon Approved Personal Document E-mail List</a>.</div>
+            <div class="sentence">Add <span class="click-to-copy highlight">{{ from_user }}</span> to your Amazon Approved Personal Document E-mail List. <a href="https://www.amazon.cn/gp/help/customer/display.html?nodeId=201974220" target="_blank">❓</a></div>
         </div>
     </div>
     <div class="step">
@@ -154,7 +154,7 @@ $(function() {
         }
 
         let text = that.text();
-        that.text('Pushing...');
+        that.text('Pushing... Please wait...');
         $.ajax({
             url: '/push',
             type: 'POST',
@@ -163,15 +163,17 @@ $(function() {
                 fileIds: fileIds
             }),
             contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
             success: (response) => {
-                that.text('Complete!');
-                console.log(response);
-                setTimeout(() => {that.text(text);}, 2000);
+                response = JSON.parse(response);
+                if (response.code === 0) {
+                    that.text('Complete! Check in your kindle for a while.');
+                } else {
+                    that.text(response.msg);
+                }
+                setTimeout(() => {that.text(text);}, 3000);
             }
         });
         fileIds = [];
-
     });
 
 });
