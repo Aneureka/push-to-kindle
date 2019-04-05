@@ -1,0 +1,174 @@
+@font-face {
+    font-family: "Mukta";
+    src: url("../fonts/Mukta/Mukta-Regular.ttf");
+}
+
+@font-face {
+    font-family: "Mukta-Bold";
+    src: url("../fonts/Mukta/Mukta-Bold.ttf");
+}
+
+html {
+    background-color: #dff8fe;
+    font-size: 16px;
+    font-family: "Mukta", serif;
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 60%;
+    height: 100%;
+}
+
+.title {
+    font-size: 3rem;
+    font-family: "Mukta-Bold", serif;
+    margin-bottom: 0.2rem;
+    line-height: 1.2;
+}
+
+.sentence {
+    font-size: 1.5rem;
+    line-height: 1.7;
+    overflow: hidden;
+}
+
+.click-to-copy {
+    cursor: pointer;
+    transition: transform ease-in 0.1s;
+}
+
+.click-to-copy:hover {
+    transform: scale(0.98);
+}
+
+.step {
+    margin-top: 2rem;
+    font-size: 1.5rem;
+}
+
+.number {
+    font-size: 3rem;
+    font-family: "Mukta-Bold", serif;
+    line-height: 1;
+    float: left;
+}
+
+.content {
+    margin-left: 3rem;
+}
+
+.notification {
+    font-size: 1rem;
+    color: #3c7390;
+    display: none;
+}
+
+.warning {
+    color: coral;
+}
+
+.success {
+    color: #529467;
+}
+
+.error {
+    color: #dd685c;
+}
+
+.highlight {
+    background-color: #3c7390;
+    background-color: #d2ebf1;
+    color: currentColor;
+    -webkit-border-radius: 0.1rem;
+    -moz-border-radius: 0.1rem;
+    border-radius: 0.3em;
+    padding-left: 0.3em;
+    padding-right: 0.3em;
+}
+
+#email {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+    font-size: 1.5rem;
+    background: transparent;
+    border: none;
+    color: #41c7fb;
+    font-family: "Mukta", serif;
+    line-height: 1;
+    width: 100%;
+}
+
+::placeholder {
+    color: #41c7fb;
+    opacity: 0.5;
+}
+
+#push-button {
+    margin-right: 0;
+    background: #3f7896;
+    font-size: 1.5rem;
+    overflow: hidden;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+    font-family: "Mukta", serif;
+    opacity: 1;
+}
+
+#push-button:active {
+    opacity: 1;
+    transform: scale(0.98);
+    background: #3c7390;
+}
+
+/*filepond style*/
+.filepond--root {
+    font-family: "Mukta", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol';
+    font-size: 1.5rem;
+    margin-bottom: 0;
+    margin-right: 0;
+}
+
+.filepond--panel-root {
+    background-color: #41c7fb;
+}
+
+.filepond--drop-label {
+    color: black;
+}
+
+.filepond--item-panel {
+    background-color: #277999;
+}
+
+.filepond--file-action-button {
+    background-color: #3f7896;
+    color: black;
+}
+
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 14px;
+    }
+    body {
+        max-width: 90%;
+    }
+    .title {
+        font-size: 2.5rem;
+    }
+
+}

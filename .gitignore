@@ -1,0 +1,17 @@
+# idea
+.idea
+*.ini
+*.pyc
+logs
+.DS_Store
+
+# virtual environment
+venv
+
+# py cache
+__pycache__
+
+# script
+*.sh
+
+.tmp

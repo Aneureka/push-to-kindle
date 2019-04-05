@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+
+    <link rel="stylesheet" type="text/css" href="/static/css/filepond.min.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+
+</head>
+
+<body>
+    <h1 class="title">🙅🏻‍♀️ {{ title }}</h1>
+    <div class="sentence">Open-source tool to push documents to your lovely kindle.</div>
+    <div class="step">
+        <span class="number">1</span>
+        <div class="content">
+            <div class="sentence">Add <span class="click-to-copy highlight">send@kindle.aneureka.cn</span> to your <a href="https://www.amazon.cn", target="_blank">Amazon Approved Personal Document E-mail List</a>.</div>
+        </div>
+    </div>
+    <div class="step">
+        <span class="number">2</span>
+        <div class="content">
+            <input type="email" name="email" id="email" placeholder="Type your Kindle email here."/>
+            <div class="notification warning" id="email-warning">Your kindle email may be incorrect. It is like <span class="highlight">pushtokindle@kindle.cn</span></div>
+        </div>
+    </div>
+    <div class="step">
+        <span class="number">3</span>
+        <div class="content">
+            <input type="file" name="file" id="file"/>
+        </div>
+    </div>
+    <div class="step">
+        <span class="number">4</span>
+        <div class="content">
+            <button id="push-button">Push now!</button>
+            <div class="notification error" id="email-error">Please check your kindle email!</div>
+            <div class="notification error" id="files-error">Make sure you have uploaded files that have not been pushed!</div>
+        </div>
+    </div>
+
+<script src="/static/js/jquery.js"></script>
+<script src="/static/js/filepond.min.js"></script>
+<script src="/static/js/filepond.jquery.js"></script>
+<script src="/static/js/filepond-plugin-file-validate-size.js"></script>
+<script src="/static/js/filepond-plugin-file-validate-type.js"></script>
+
+<script>
+
+$(function() {
+
+    // function definition
+    let isValidEmail = (email) => {
+        let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(kindle\.[a-zA-Z]{2,}))$/;
+        return re.test(String(email).toLowerCase());
+    };
+    let copyToClipboard = (element) => {
+        let $temp = $('<input>');
+        $('body').append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand('copy');
+        $temp.remove();
+    };
+
+    // initialization
+    const fadeDuration = 500;
+    localStorage.setItem('uniqueFileIds', JSON.stringify([]));
+    let email = localStorage.getItem('email');
+    if (email) {
+        $('#email').val(email);
+        email.length === 0 || isValidEmail(email) ? $('#email-warning').fadeOut(fadeDuration) : $('#email-warning').fadeIn(fadeDuration);
+    }
+    let fileIds = [];
+    $('.click-to-copy').click(function() {
+        let that = $(this);
+        copyToClipboard(that);
+        let text = that.text();
+        let color = that.css('color');
+        that.text('Copied to clipboard!');
+        that.css('color', '#529467');
+        that.css('pointer-events', 'none');
+        setTimeout(function() {that.text(text); that.css('color', color); that.css('pointer-events', 'auto');}, 1000);
+    });
+
+    // email
+    $('#email').change((e) => {
+        email = e.target.value;
+        localStorage.setItem('email', email);
+        email.length === 0 || isValidEmail(email) ? $('#email-warning').fadeOut(fadeDuration) : $('#email-warning').fadeIn(fadeDuration);
+    });
+
+    // file
+    $.fn.filepond.registerPlugin(FilePondPluginFileValidateSize, FilePondPluginFileValidateType);
+    $('#file').filepond({
+        maxFiles: 5,
+        maxFileSize: '2MB',
+        dropValidation: true,
+        allowMultiple: true,
+        server: {
+            url: '{{ host }}',
+            timeout: 7000,
+            process: {
+                url: '/files',
+                onload: (response) => {
+                    response = JSON.parse(response);
+                    if (response.code === 0) {
+                        let fileId = response.data;
+                        fileIds.push(fileId);
+                        console.log(fileIds);
+                        return fileId;
+                    } else {
+                        console.log(response.msg);
+                    }
+                }
+            },
+            revert: {
+                url: '/files',
+                onload: (response) => {
+                    response = JSON.parse(response);
+                    let fileId = response.data;
+                    let index = fileIds.indexOf(fileId);
+                    if (index > -1) {
+                        fileIds.splice(index, 1)
+                    }
+                    return fileId;
+                }
+            },
+            fetch: null,
+            load: null,
+            restore: null
+        }
+    });
+
+    $('#push-button').click(function() {
+        let that = $(this);
+        // check input fields
+        let emailValid = isValidEmail(email);
+        let filesValid = fileIds.length > 0;
+
+        if (!emailValid) {
+            $('#email-error').fadeIn(fadeDuration);
+            return;
+        } else {
+            $('#email-error').fadeOut(fadeDuration);
+        }
+
+        if (!filesValid) {
+            $('#files-error').fadeIn(fadeDuration);
+            return;
+        } else {
+            $('#files-error').fadeOut(fadeDuration);
+        }
+
+        let text = that.text();
+        that.text('Pushing...');
+        $.ajax({
+            url: '/push',
+            type: 'POST',
+            data: JSON.stringify({
+                email: email,
+                fileIds: fileIds
+            }),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            success: (response) => {
+                that.text('Complete!');
+                console.log(response);
+                setTimeout(() => {that.text(text);}, 2000);
+            }
+        });
+        fileIds = [];
+
+    });
+
+});
+
+</script>
+
+
+</body>
+</html>
+
+
+
+

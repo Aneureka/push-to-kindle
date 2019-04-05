@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+ROOT_PATH=/dir/to/your/project
+export PYTHONPATH=$ROOT_PATH:$PYTHONPATH
+
+export FLASK_APP=manager.py
+export FLASK_ENV=development
+export FLASK_DEBUG=0
+
+export MG_DOMAIN_NAME=
+export MG_API_KEY=
+export MG_EMAIL_FROM=
+export MG_EMAIL_SUBJECT=
+export MG_EMAIL_TEXT=
+
+# use venv
+$ROOT_PATH/venv/bin/python -m flask run
