@@ -1,4 +1,5 @@
 from flask import request, render_template, current_app
+import requests
 import json
 
 from . import api
@@ -54,13 +55,11 @@ def push():
         return json.dumps({'code': -1, 'msg': 'Email and File ids are required.'})
     # send emails
     files = [read_file(file_id) for file_id in file_ids]
-    if send_mail(to_email, files):
-        # remove files
+    try:
+        send_mail(to_email, files)
         for file_id in file_ids:
             remove_file(file_id)
         return json.dumps({'code': 0, 'data': file_ids})
-    else:
+    except requests.exceptions.RequestException as e:
+        print(str(e))
         return json.dumps({'code': -1, 'msg': 'Failed to send emails. Please try again.'})
-
-
-

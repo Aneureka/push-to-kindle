@@ -3,13 +3,13 @@ import os
 
 class Config:
     # app
-    APP_NAME = 'Push to kindle!'
+    APP_NAME = 'PUSH TO KINDLE!'
     UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER')
     ACCEPTED_FILE_TYPES = ['.jpeg', '.jpg', '.gif', '.png', '.doc', '.docx', '.html', '.htm', '.rtf', '.mobi', '.azw', '.bmp', '.pdf']
     # mailgun
-    MG_DOMAIN_NAME = 'kindle.aneureka.cn'
+    MG_DOMAIN_NAME = 'push.tokindle.top'
     MG_API_KEY = os.environ.get('MG_API_KEY')
-    MG_EMAIL_FROM = 'push@%s' % MG_DOMAIN_NAME
+    MG_EMAIL_FROM = 'please@%s' % MG_DOMAIN_NAME
     MG_EMAIL_FROM_USER = '%s <%s>' % (APP_NAME, MG_EMAIL_FROM)
     MG_EMAIL_SUBJECT = 'convert'
     MG_EMAIL_TEXT = 'Documents have been pushed to your kindle.'

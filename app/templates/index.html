@@ -4,26 +4,25 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
-
+    <link rel="shortcut icon" type="image/png" href="/static/images/icons/favicon.png"/>
     <link rel="stylesheet" type="text/css" href="/static/css/filepond.min.css">
     <link rel="stylesheet" type="text/css" href="/static/css/index.css">
-
 </head>
 
 <body>
-    <h1 class="title">🙅🏻‍♀️ {{ title }}</h1>
-    <div class="sentence">Open-source tool to push documents to your lovely kindle.</div>
+    <div class="title"><img src="/static/images/icons/favicon.png" class="logo"> {{ title }}</div>
+    <div class="sentence desc"><span class="highlight">{{ title }}</span> 是一个<a href="https://github.com/Aneureka/push-to-kindle" target="_blank">开源</a>工具，可以往你的 Kindle 上推送文档，以达到拯救泡面板的目的。</div>
     <div class="step">
         <span class="number">1</span>
         <div class="content">
-            <div class="sentence">Add <span class="click-to-copy highlight">{{ from_user }}</span> to your Amazon Approved Personal Document E-mail List. <a href="https://www.amazon.cn/gp/help/customer/display.html?nodeId=201974220" target="_blank">❓</a></div>
+            <div class="sentence">把 <span class="click-to-copy highlight">{{ from_user }}</span> 添加到你亚马逊账号的已认可发件人电子邮箱列表中。<a href="https://www.amazon.cn/gp/help/customer/display.html?nodeId=201974220" target="_blank">❓</a></div>
         </div>
     </div>
     <div class="step">
         <span class="number">2</span>
         <div class="content">
-            <input type="email" name="email" id="email" placeholder="Type your Kindle email here."/>
-            <div class="notification warning" id="email-warning">Your kindle email may be incorrect. It is like <span class="highlight">pushtokindle@kindle.cn</span></div>
+            <input type="email" name="email" id="email" placeholder="💁🏻‍♀️ 把你的 Kindle 邮箱告诉我吧"/>
+            <div class="notification warning" id="email-warning">你的 Kindle 邮箱会不会填错啦，应该是类似这样的格式：<span class="highlight">ilove@kindle.cn</span></div>
         </div>
     </div>
     <div class="step">
@@ -35,11 +34,15 @@
     <div class="step">
         <span class="number">4</span>
         <div class="content">
-            <button id="push-button">Push now!</button>
-            <div class="notification error" id="email-error">Please check your kindle email!</div>
-            <div class="notification error" id="files-error">Make sure you have uploaded files that have not been pushed!</div>
+            <button id="push-button">启动推送！</button>
+            <div class="notification error" id="email-error">请好好检查你的 Kindle 邮箱！</div>
+            <div class="notification error" id="files-error">确保你还有未推送的文件！</div>
         </div>
     </div>
+    <hr />
+    <div class="sentence footnote">目前支持一次推送 5 个文档，每个文档最大 10M。</div>
+    <div class="sentence footnote">目前支持的文件格式：[.jpeg, .jpg, .gif, .png, .doc, .docx, .html, .htm, .rtf, .mobi, .azw, .bmp, .pdf]，不支持的文件格式将会被忽略哦。</div>
+
 
 <script src="/static/js/jquery.js"></script>
 <script src="/static/js/filepond.min.js"></script>
@@ -60,6 +63,7 @@ $(function() {
         let $temp = $('<input>');
         $('body').append($temp);
         $temp.val($(element).text()).select();
+        console.log($(element).text());
         document.execCommand('copy');
         $temp.remove();
     };
@@ -95,9 +99,36 @@ $(function() {
     $.fn.filepond.registerPlugin(FilePondPluginFileValidateSize, FilePondPluginFileValidateType);
     $('#file').filepond({
         maxFiles: 5,
-        maxFileSize: '2MB',
         dropValidation: true,
         allowMultiple: true,
+        labelIdle: '把你的文件拖到这儿 或 浏览本地文件',
+        labelInvalidField: '貌似包含了无效文件呢',
+        labelFileWaitingForSize: '正在获取文件大小',
+        labelFileSizeNotAvailable: '哎呀获取不到文件的大小了',
+        labelFileLoading: '正在加载文件',
+        labelFileLoadError: '加载错误！',
+        labelFileProcessing: '文件上传中',
+        labelFileProcessingComplete: '上传完成',
+        labelFileProcessingAborted: '取消上传啦',
+        labelFileProcessingError: '上传时遇到错误了',
+        labelFileProcessingRevertError: '撤销时遇到错误了',
+        labelFileRemoveError: '删除时遇到错误了',
+        labelTapToCancel: '取消 👉',
+        labelTapToRetry: '点击 👉',
+        labelTapToUndo: '点击 👉',
+        labelButtonRemoveItem: '删除',
+        labelButtonAbortItemLoad: '中止',
+        labelButtonRetryItemLoad: '重试',
+        labelButtonAbortItemProcessing: '取消',
+        labelButtonUndoItemProcessing: '撤销',
+        labelButtonRetryItemProcessing: '重试',
+        labelButtonProcessItem: '上传',
+        maxFileSize: '10MB',
+        maxTotalFileSize: '50MB',
+        labelMaxFileSizeExceeded: '这个文件太大啦！',
+        labelMaxFileSize: '最多最多只能 {filesize} 哦',
+        labelMaxTotalFileSizeExceeded: '文件太多吃不消了呢',
+        labelMaxTotalFileSize: '最多只能 {filesize} 啦',
         server: {
             url: '{{ host }}',
             timeout: 7000,
@@ -154,7 +185,8 @@ $(function() {
         }
 
         let text = that.text();
-        that.text('Pushing... Please wait...');
+        that.text('正在推送中...');
+        that.prop('disabled', true);
         $.ajax({
             url: '/push',
             type: 'POST',
@@ -166,14 +198,14 @@ $(function() {
             success: (response) => {
                 response = JSON.parse(response);
                 if (response.code === 0) {
-                    that.text('Complete! Check in your kindle for a while.');
+                    that.text('推送成功！待会儿去你的 Kindle 看看吧~');
+                    fileIds = [];
                 } else {
-                    that.text(response.msg);
+                    that.text('呜呜呜推送失败了，检查下你的网络情况，重新试试吧');
                 }
-                setTimeout(() => {that.text(text);}, 3000);
             }
         });
-        fileIds = [];
+        setTimeout(() => {that.text(text); that.prop('disabled', false);}, 3000);
     });
 
 });

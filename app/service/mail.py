@@ -5,7 +5,7 @@ from flask import current_app
 def send_mail(to_email, files=None):
     # send mail with mailgun
     try:
-        result = requests.post(
+        response = requests.post(
             'https://api.mailgun.net/v3/%s/messages' % current_app.config['MG_DOMAIN_NAME'],
             auth=('api', current_app.config['MG_API_KEY']),
             data={
@@ -16,12 +16,8 @@ def send_mail(to_email, files=None):
             },
             files=[('attachment', f) for f in files]
         )
-        if result.ok:
-            return True
-        else:
-            print(result.text)
-            return False
-    except requests.exceptions.ConnectionError as e1:
-        return False
-    except requests.exceptions.BaseHTTPError as e2:
-        return False
+        response.raise_for_status()
+    except requests.exceptions.HTTPError as e1:
+        raise e1
+    except requests.exceptions.RequestException as e2:
+        raise e2

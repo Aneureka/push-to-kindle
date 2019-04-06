@@ -26,19 +26,48 @@ body {
 
 a {
     text-decoration: none;
+    color: #41c7fb;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    margin-top: 2rem;
+    padding: 0;
+    border: 0;
+    border-top: 1px solid #277999;
+    width: 100%;
+    color: #277999;
 }
 
 .title {
     font-size: 3rem;
     font-family: "Mukta-Bold", serif;
+    margin-top: 1rem;
     margin-bottom: 0.2rem;
     line-height: 1.2;
+}
+
+.logo {
+    width: 2.5rem;
+    height: 2.5rem;
 }
 
 .sentence {
     font-size: 1.5rem;
     line-height: 1.7;
     overflow: hidden;
+}
+
+.desc {
+    font-size: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.footnote {
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    line-height: 1.5;
 }
 
 .click-to-copy {
