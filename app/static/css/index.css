@@ -11,17 +11,17 @@
 html {
     background-color: #dff8fe;
     font-size: 16px;
-    font-family: "Mukta", serif;
-    width: 100%;
-    height: 100%;
+    font-family: "Mukta", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol';
+    min-height: 100%;
+    height: auto;
+    overflow: scroll;
 }
 
 body {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    max-width: 60%;
-    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 
 a {
@@ -40,9 +40,17 @@ hr {
     color: #277999;
 }
 
+.main {
+    margin: 0 auto;
+    max-width: 60%;
+    display: block;
+}
+
 .title {
     font-size: 3rem;
-    font-family: "Mukta-Bold", serif;
+    font-family: "Mukta-Bold", "Mukta", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol';
     margin-top: 1rem;
     margin-bottom: 0.2rem;
     line-height: 1.2;
@@ -56,7 +64,8 @@ hr {
 .sentence {
     font-size: 1.5rem;
     line-height: 1.7;
-    overflow: hidden;
+    overflow: visible;
+    display: block;
 }
 
 .desc {
@@ -82,11 +91,15 @@ hr {
 .step {
     margin-top: 2rem;
     font-size: 1.5rem;
+    display: block;
+    position: relative;
 }
 
 .number {
     font-size: 3rem;
-    font-family: "Mukta-Bold", serif;
+    font-family: "Mukta-Bold", "Mukta", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol';
     line-height: 1;
     float: left;
 }
@@ -133,7 +146,9 @@ hr {
     background: transparent;
     border: none;
     color: #41c7fb;
-    font-family: "Mukta", serif;
+    font-family: "Mukta", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol';
     line-height: 1;
     width: 100%;
 }
@@ -147,7 +162,7 @@ hr {
     margin-right: 0;
     background: #3f7896;
     font-size: 1.5rem;
-    overflow: hidden;
+    /* overflow: hidden; */
     padding-top: 1rem;
     padding-bottom: 1rem;
     width: 100%;
@@ -156,7 +171,9 @@ hr {
     border-radius: 0.5rem;
     cursor: pointer;
     transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
-    font-family: "Mukta", serif;
+    font-family: "Mukta", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+        Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol';
     opacity: 1;
 }
 
@@ -193,15 +210,39 @@ hr {
     color: black;
 }
 
+.icp {
+    color: #277999;
+    text-align: center;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
 @media screen and (max-width: 600px) {
     html {
         font-size: 14px;
     }
-    body {
+    .main {
         max-width: 90%;
     }
     .title {
         font-size: 2.5rem;
     }
+}
 
+@media screen and (max-width: 350px) {
+    html {
+        font-size: 14px;
+    }
+    .main {
+        max-width: 90%;
+    }
+    .title {
+        font-size: 2.2rem;
+    }
+    .sentence, #email, #push-button {
+        font-size: 1.2rem;
+    }
+    .content {
+        margin-left: 2rem;
+    }  
 }
