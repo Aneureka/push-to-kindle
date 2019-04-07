@@ -44,7 +44,8 @@
         <hr />
         <div class="sentence footnote">目前支持一次推送 5 个文档，每个文档最大 10M。</div>
         <div class="sentence footnote">目前支持的文件格式：[.jpeg, .jpg, .gif, .png, .doc, .docx, .html, .htm, .rtf, .mobi, .azw, .bmp, .pdf]，不支持的文件格式将会被忽略哦。</div>
-        <div class="sentence footnote icp"><a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备18122198号</a></div>
+        <div class="sentence footnote">本网站承诺你的文件隐私安全，文件上传后会立即删除，若没有推送成功将会在一天内自动删除。</div>
+        <div class="sentence footnote icp">@2019 Hiki <a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备18122198号</a></div>
     </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
@@ -194,6 +195,7 @@ $(function() {
         $.ajax({
             url: '/push',
             type: 'POST',
+            timeout: 10000,
             data: JSON.stringify({
                 email: email,
                 fileIds: fileIds
@@ -206,6 +208,13 @@ $(function() {
                     fileIds = [];
                 } else {
                     that.text('呜呜呜推送失败了，检查下你的网络情况，重新试试吧');
+                }
+            },
+            error: (request, status, errorThrown) => {
+                if (status === 'timeout') {
+                    that.text('请求超时了呢，重新试试看~');
+                } else {
+                    that.text('你是不是还没联网吖...');
                 }
             }
         });
