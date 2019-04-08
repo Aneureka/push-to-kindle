@@ -18,12 +18,9 @@ def test_mail():
     return 'Send email successfully!'
 
 
-@api.route('/', methods=['GET', 'POST'])
+@api.route('/', methods=['GET'])
 def index():
-    if request.method == 'GET':
-        return render_template('index.html', title=current_app.config['APP_NAME'], from_user=current_app.config['MG_EMAIL_FROM'], host=current_app.config['HOST'])
-    else:
-        pass
+    return render_template('index.html', title=current_app.config['APP_NAME'], from_user=current_app.config['MG_EMAIL_FROM'], host=current_app.config['HOST'])
 
 
 @api.route('/files', methods=['POST', 'DELETE'])

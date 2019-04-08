@@ -51,7 +51,7 @@
             </div>
         </div>
         <hr />
-        <div class="sentence footnote">目前支持一次推送 5 个文档，每个文档最大 10M。</div>
+        <div class="sentence footnote">目前支持一次推送 5 个文档，每个文档最大 20M ，但是加起来最多只能 50M 哦。</div>
         <div class="sentence footnote">目前支持的文件格式：[.jpeg, .jpg, .gif, .png, .doc, .docx, .html, .htm, .rtf, .mobi, .azw, .bmp, .pdf]，不支持的文件格式将会被忽略哦。</div>
         <div class="sentence footnote">本网站承诺保护你的文件隐私安全，文件上传推送后会立即删除，若没有推送成功将会在一天内自动删除。</div>
         <div class="sentence footnote">如果在使用过程中遇到问题，请 <a href="mailto:aneureka2@gmail.com" target="_blank">联系作者邮箱</a> ，或在 <a href="https://github.com/Aneureka/push-to-kindle" target="_blank">Github</a> 上提相关 issue 哦（推荐）。</div>
@@ -115,6 +115,7 @@ $(function() {
     $('#file').filepond({
         maxFiles: 5,
         dropValidation: true,
+        allowDrag: true,
         allowMultiple: true,
         labelIdle: '把文件拖到这儿 或 浏览本地文件',
         labelInvalidField: '包含了无效文件',
@@ -138,7 +139,7 @@ $(function() {
         labelButtonUndoItemProcessing: '撤销',
         labelButtonRetryItemProcessing: '重试',
         labelButtonProcessItem: '上传',
-        maxFileSize: '10MB',
+        maxFileSize: '20MB',
         maxTotalFileSize: '50MB',
         labelMaxFileSizeExceeded: '这个文件太大啦！',
         labelMaxFileSize: '最多最多只能 {filesize} 哦',
@@ -146,7 +147,6 @@ $(function() {
         labelMaxTotalFileSize: '最多只能 {filesize} 啦',
         server: {
             url: '{{ host }}',
-            timeout: 7000,
             process: {
                 url: '/files',
                 method: 'POST',
@@ -207,7 +207,7 @@ $(function() {
         }
 
         let text = that.text();
-        that.text('正在推送中...');
+        that.text('正在努力推送中...');
         that.prop('disabled', true);
         $.ajax({
             url: '/push',
@@ -216,7 +216,7 @@ $(function() {
                 email: email,
                 fileIds: fileIds
             }),
-            timeout: 10000,
+            timeout: 120000,
             contentType: 'application/json; charset=utf-8',
             success: (response) => {
                 response = JSON.parse(response);
