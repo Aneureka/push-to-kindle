@@ -62,7 +62,7 @@ hr {
 }
 
 .sentence {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     line-height: 1.7;
     overflow: visible;
     display: block;
@@ -90,7 +90,7 @@ hr {
 
 .step {
     margin-top: 2rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     display: block;
     position: relative;
 }
@@ -142,7 +142,7 @@ hr {
     -moz-box-sizing: border-box;
     box-sizing: border-box;
     outline: none;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     background: transparent;
     border: none;
     color: #41c7fb;
@@ -161,7 +161,7 @@ hr {
 #push-button {
     margin-right: 0;
     background: #3f7896;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     /* overflow: hidden; */
     padding-top: 1rem;
     padding-bottom: 1rem;
@@ -192,7 +192,7 @@ hr {
     font-family: "Mukta", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
         Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol';
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     margin-bottom: 0;
     margin-right: 0;
 }
