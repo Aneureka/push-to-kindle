@@ -16,7 +16,9 @@
 
 如果你想学习或重新运行本项目，也可以将 `PUSH TO KINDLE!` 部署到你的服务器上，只需要重新填写配置信息：
 
-- 修改 `config.py` 
+- 在项目文件夹创建 virtualenv Python3 环境，命名为 venv
+- 安装项目依赖： `pip3 install -r requirements`
+- 修改 `config.py` （需要配置 [Mailgun](https://www.mailgun.com/) ）
 - 将 `run.sh.example` 重命名为 `run.sh` ，并修改它
 - 运行 `bash run.sh` 启动你的项目吧~
 
@@ -32,7 +34,7 @@
 
 ## 捐赠
 
-如果你觉得 `PUSH TO KINDLE!` 还挺好用，可以考虑请我恰饭~
+如果你觉得 `PUSH TO KINDLE!` 挺好用，可以考虑某宝请我喝热水，要恰饭的嘛~
 
 <img width="200px" src="https://i.loli.net/2019/04/07/5ca9ef413e986.jpg" />
 
