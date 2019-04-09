@@ -132,13 +132,13 @@ $(function() {
         labelTapToCancel: '取消 👉',
         labelTapToRetry: '重试 👉',
         labelTapToUndo: '撤销 👉',
-        labelButtonRemoveItem: '删除',
-        labelButtonAbortItemLoad: '中止',
-        labelButtonRetryItemLoad: '重试',
-        labelButtonAbortItemProcessing: '取消',
-        labelButtonUndoItemProcessing: '撤销',
-        labelButtonRetryItemProcessing: '重试',
-        labelButtonProcessItem: '上传',
+        labelButtonRemoveItem: '',
+        labelButtonAbortItemLoad: '',
+        labelButtonRetryItemLoad: '',
+        labelButtonAbortItemProcessing: '',
+        labelButtonUndoItemProcessing: '',
+        labelButtonRetryItemProcessing: '',
+        labelButtonProcessItem: '',
         maxFileSize: '20MB',
         maxTotalFileSize: '50MB',
         labelMaxFileSizeExceeded: '这个文件太大啦！',
@@ -222,10 +222,9 @@ $(function() {
                 response = JSON.parse(response);
                 if (response.code === 0) {
                     that.text('已经加入推送队列，待会儿去你的 Kindle 看看吧~');
-                    console.log(response.data); // job id
                     fileIds = [];
                 } else {
-                    that.text('呜呜呜推送失败了，检查下你的网络情况，重新试试吧');
+                    that.text('呜呜呜推送失败了，重新试试吧');
                 }
                 setTimeout(() => {that.text(text); that.prop('disabled', false);}, 3000);
             },
