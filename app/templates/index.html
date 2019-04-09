@@ -221,7 +221,8 @@ $(function() {
             success: (response) => {
                 response = JSON.parse(response);
                 if (response.code === 0) {
-                    that.text('推送成功！待会儿去你的 Kindle 看看吧~');
+                    that.text('已经加入推送队列，待会儿去你的 Kindle 看看吧~');
+                    console.log(response.data); // job id
                     fileIds = [];
                 } else {
                     that.text('呜呜呜推送失败了，检查下你的网络情况，重新试试吧');

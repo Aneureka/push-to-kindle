@@ -13,7 +13,7 @@ class Config:
     MG_EMAIL_FROM_USER = '%s <%s>' % (APP_NAME, MG_EMAIL_FROM)
     MG_EMAIL_SUBJECT = 'convert'
     MG_EMAIL_TEXT = 'Documents have been pushed to your kindle.'
-    
+
     @staticmethod
     def init_app(app):
         pass

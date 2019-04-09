@@ -1,21 +1,25 @@
 import requests
 from flask import current_app
+from flask import app
 
+from app.extensions import rq
 
-def send_mail(to_email, files=None):
+@rq.job
+def send_mail(to_email, from_email, subject, text, files, domain_name, auth_api):
     # send mail with mailgun
     try:
         response = requests.post(
-            'https://api.mailgun.net/v3/%s/messages' % current_app.config['MG_DOMAIN_NAME'],
-            auth=('api', current_app.config['MG_API_KEY']),
+            'https://api.mailgun.net/v3/%s/messages' % domain_name,
+            auth=('api', auth_api),
             data={
-                'from': current_app.config['MG_EMAIL_FROM_USER'],
+                'from': from_email,
                 'to': to_email,
-                'subject': current_app.config['MG_EMAIL_SUBJECT'],
-                'text': current_app.config['MG_EMAIL_TEXT']
+                'subject': subject,
+                'text': text
             },
             files=[('attachment', f) for f in files]
         )
+        print('Sent emails successfully.')
         response.raise_for_status()
     except requests.exceptions.HTTPError as e1:
         raise e1
