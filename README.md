@@ -6,7 +6,7 @@
 
 ## 开始
 
-访问：https://www.aneureka.cn （暂用，几周内会更改域名）
+访问：https://tokindle.top
 
 推送文档到你心爱的 Kindle 上吧~
 
