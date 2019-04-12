@@ -48,8 +48,8 @@ def push():
     files = [read_file(file_id) for file_id in file_ids]
     try:
         job = send_mail.queue(to_email, current_app.config['MG_EMAIL_FROM'], current_app.config['MG_EMAIL_SUBJECT'], current_app.config['MG_EMAIL_TEXT'], files, current_app.config['MG_DOMAIN_NAME'], current_app.config['MG_API_KEY'])
-        for file_id in file_ids:
-            remove_file(file_id)
+        # for file_id in file_ids:
+        #     remove_file(file_id)
         return json.dumps({'code': 0, 'data': job.id})
     except requests.exceptions.RequestException as e:
         print(str(e))
