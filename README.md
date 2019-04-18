@@ -2,19 +2,21 @@
 
 ![](<https://img.shields.io/badge/author-aneureka-orange.svg>) ![AUR license](https://img.shields.io/aur/license/yaourt.svg) [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 
-`PUSH TO KINDLE!` 是一个简洁优雅的 Kindle 文档推送工具，快来拯救你的泡面板吧！
+`PUSH TO KINDLE!` 是一个简洁优雅的 Kindle 文档推送工具，快来拯救你的泡面板！
 
 ## 开始
 
 访问：https://tokindle.top
 
-推送文档到你心爱的 Kindle 上吧~
+现在就推送文档到你心爱的 Kindle 上吧~
 
 
 
 ## 有用吗？
 
 其实通过官方的方法，用邮箱发送文档没什么问题，但因为懒，想去掉重复无谓的操作。
+
+当然，你可以一起让它发挥更大的价值，从提 ISSUE 和 PR 开始~
 
 
 
@@ -51,7 +53,7 @@
 
 ## 捐赠
 
-如果你觉得 `PUSH TO KINDLE!` 挺好用，可以考虑某宝请我喝热水，要恰饭的嘛~
+觉得 `PUSH TO KINDLE!` 好用的话，可以考虑\$某宝\$请我喝茶，要恰饭的嘛~
 
 <img width="200px" src="https://i.loli.net/2019/04/07/5ca9ef413e986.jpg" />
 

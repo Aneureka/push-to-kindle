@@ -19,3 +19,6 @@ logs
 
 # uwsgi
 *.ini
+
+# vscode
+.vscode
