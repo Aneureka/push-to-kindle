@@ -28,6 +28,7 @@ def handle_files():
             file_id = create_file(file)
             return json.dumps({'code': 0, 'data': file_id})
         except ValueError as e:
+            print(str(e))
             return json.dumps({'code': -1, 'msg': str(e)})
     else:
         file_id = request.data.decode('utf-8')
@@ -47,10 +48,8 @@ def push():
     # send emails
     files = [read_file(file_id) for file_id in file_ids]
     try:
-        job = send_mail.queue(to_email, current_app.config['MG_EMAIL_FROM'], current_app.config['MG_EMAIL_SUBJECT'], current_app.config['MG_EMAIL_TEXT'], files, current_app.config['MG_DOMAIN_NAME'], current_app.config['MG_API_KEY'])
-        # for file_id in file_ids:
-        #     remove_file(file_id)
-        return json.dumps({'code': 0, 'data': job.id})
+        send_mail(to_email, current_app.config['MG_EMAIL_FROM'], current_app.config['MG_EMAIL_SUBJECT'], current_app.config['MG_EMAIL_TEXT'], files, current_app.config['MG_DOMAIN_NAME'], current_app.config['MG_API_KEY'])
+        return json.dumps({'code': 0})
     except requests.exceptions.RequestException as e:
         print(str(e))
         return json.dumps({'code': -1, 'msg': 'Failed to send emails. Please try again.'})

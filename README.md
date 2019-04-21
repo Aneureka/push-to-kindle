@@ -4,7 +4,9 @@
 
 `PUSH TO KINDLE!` 是一个简洁优雅的 Kindle 文档推送工具，快来拯救你的泡面板！
 
-## 开始
+
+
+## Startup
 
 访问：https://tokindle.top
 
@@ -12,7 +14,7 @@
 
 
 
-## 有用吗？
+## Is it useful?
 
 其实通过官方的方法，用邮箱发送文档没什么问题，但因为懒，想去掉重复无谓的操作。
 
@@ -20,7 +22,7 @@
 
 
 
-## 技术栈
+## Technology stack
 
 - JQuery（前端就是一把梭）
 
@@ -30,20 +32,27 @@
 
 
 
-## 部署
+## Deploy
 
 如果你想学习或重新运行本项目，也可以将 `PUSH TO KINDLE!` 部署到你的服务器上，只需要重新填写配置信息：
 
 - 在项目文件夹创建 virtualenv Python3 环境，命名为 venv
 - 安装项目依赖： `pip3 install -r requirements`
 - 修改 `config.py` （需要注册并配置 [Mailgun](https://www.mailgun.com/) ）
-- 将 `run.sh.example` 重命名为 `run.sh` ，并修改它
-- 配置 supervisor 将 rq 运行起来，可参考 [官方文档](http://python-rq.org/patterns/supervisor/)
+- ~~将 `run.sh.example` 重命名为 `run.sh` ，并修改它~~
+- ~~配置 supervisor 将 rq 运行起来，可参考 [官方文档](http://python-rq.org/patterns/supervisor/)~~
 - 运行 `bash run.sh` 启动你的项目吧~
 
 
 
-## 感谢
+## Roadmap
+
+- 日志
+
+
+
+
+## Special thanks
 
 - [filepond](https://github.com/pqina/filepond)，一个超好用又好看的 JS 文件上传工具
 
@@ -51,7 +60,7 @@
 
 
 
-## 捐赠
+## Donate
 
 觉得 `PUSH TO KINDLE!` 好用的话，可以考虑\$某宝\$请我喝茶，要恰饭的嘛~
 
