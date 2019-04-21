@@ -2,6 +2,7 @@ import os
 import glob
 import uuid
 from flask import current_app
+from app.utils import translate
 
 
 def create_file(file):
@@ -27,6 +28,8 @@ def read_file(file_id):
     filename = _get_filename(file_id)
     origin_filename = os.path.splitext(filename)[0]
     origin_filename = origin_filename.split('/')[-1]
+    # translate to English
+    origin_filename = translate(origin_filename)
     if filename:
         with open(filename, 'rb') as f:
             return origin_filename, f.read()
