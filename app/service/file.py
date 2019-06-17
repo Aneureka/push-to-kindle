@@ -8,11 +8,13 @@ from app.utils import translate
 def create_file(file):
     origin_filename = file.filename.encode('ascii', 'replace').decode('utf-8')
     origin_filename = file.filename
-    _, file_type = os.path.splitext(origin_filename)
+    core_filename, file_type = os.path.splitext(origin_filename)
     if file_type not in current_app.config['ACCEPTED_FILE_TYPES']:
         raise ValueError('Not supported file type.')
+    if file_type in current_app.config['TRANSFER_FILE_TYPES']:
+        file_type = '.zip'
     file_id = str(uuid.uuid4())
-    filename = os.path.join(current_app.config['UPLOAD_FOLDER'], '%s.%s' % (origin_filename, file_id))
+    filename = os.path.join(current_app.config['UPLOAD_FOLDER'], '%s.%s.%s' % (core_filename, file_type, file_id))
     if not os.path.exists(filename):
         file.save(filename)
     return file_id
