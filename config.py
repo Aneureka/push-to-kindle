@@ -7,6 +7,7 @@ class Config:
     UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER')
     ACCEPTED_FILE_TYPES = ['.jpeg', '.jpg', '.gif', '.png', '.doc', '.docx', '.html', '.htm', '.rtf', '.mobi', '.azw', '.azw3', '.bmp', '.pdf', '.txt', '.epub', '.zip']
     TRANSFER_FILE_TYPES = ['.epub']
+    MAX_CONTENT_LENGTH = 120 * 1024 * 1024
     # mailgun
     MG_DOMAIN_NAME = 'push.tokindle.top'
     MG_API_KEY = os.environ.get('MG_API_KEY')

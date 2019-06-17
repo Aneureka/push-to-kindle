@@ -1,6 +1,7 @@
 import os
 import glob
 import uuid
+import re
 from flask import current_app
 from app.utils import translate
 
@@ -14,7 +15,7 @@ def create_file(file):
     if file_type in current_app.config['TRANSFER_FILE_TYPES']:
         file_type = '.zip'
     file_id = str(uuid.uuid4())
-    filename = os.path.join(current_app.config['UPLOAD_FOLDER'], '%s.%s.%s' % (core_filename, file_type, file_id))
+    filename = os.path.join(current_app.config['UPLOAD_FOLDER'], '%s%s.%s' % (core_filename, file_type, file_id))
     if not os.path.exists(filename):
         file.save(filename)
     return file_id
@@ -31,7 +32,10 @@ def read_file(file_id):
     origin_filename = os.path.splitext(filename)[0]
     origin_filename = origin_filename.split('/')[-1]
     # translate to English
-    origin_filename = translate(origin_filename)
+    pattern = re.compile('[\u00A1-\uFFFF]')
+    # check if filename contains utf-8 characters
+    if pattern.match(origin_filename) is not None:
+        origin_filename = translate(origin_filename)
     if filename:
         with open(filename, 'rb') as f:
             return origin_filename, f.read()
