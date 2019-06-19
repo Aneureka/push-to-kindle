@@ -37,9 +37,10 @@
 - 在项目文件夹创建 virtualenv Python3 环境，命名为 venv
 - 安装项目依赖： `pip3 install -r requirements`
 - 修改 `config.py` （需要注册并配置 [Mailgun](https://www.mailgun.com/) ）
-- ~~将 `run.sh.example` 重命名为 `run.sh` ，并修改它~~
+- 如果运行在本地测试环境，将 `run.sh.example` 重命名为 `run.sh` ，并修改它
+- 如果运行在服务器环境，将 `run_server.sh.example` 和 `uwsgi.ini.example` 重命名为 `run_server.sh` 和 `uwsgi.ini`，并进行相应的修改
 - ~~配置 supervisor 将 rq 运行起来，可参考 [官方文档](http://python-rq.org/patterns/supervisor/)~~
-- 运行 `bash run.sh` 启动你的项目吧~
+- 运行 `bash run.sh` 或 `bash run_server.sh`，启动你的项目吧~
 
 
 
@@ -59,7 +60,7 @@
 
 ## Donate
 
-觉得 `PUSH TO KINDLE!` 好用的话，可以考虑\$某宝\$请我喝茶，要恰饭的嘛~
+觉得 `PUSH TO KINDLE!` 好用的话，可以考虑 `某宝` 请我喝茶，要恰饭的嘛~
 
 <img width="200px" src="https://i.loli.net/2019/04/07/5ca9ef413e986.jpg" />
 
