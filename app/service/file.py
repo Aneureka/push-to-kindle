@@ -33,9 +33,11 @@ def read_file(file_id):
     origin_filename = origin_filename.split('/')[-1]
     # translate to English
     pattern = re.compile('[\u00A1-\uFFFF]')
+    core_filename, file_type = os.path.splitext(origin_filename)
     # check if filename contains utf-8 characters
-    if pattern.match(origin_filename) is not None:
-        origin_filename = translate(origin_filename)
+    if pattern.search(core_filename) is not None:
+        core_filename = translate(core_filename)
+    origin_filename = core_filename + file_type
     if filename:
         with open(filename, 'rb') as f:
             return origin_filename, f.read()
