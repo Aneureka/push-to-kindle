@@ -17,7 +17,6 @@ def send_mail(to_email, from_email, subject, text, files, domain_name, auth_api)
         },
         files=[('attachment', f) for f in files]            
     )
-    print(response)
     # response.raise_for_status()
     # except requests.exceptions.HTTPError as e1:
     #     print(e1)

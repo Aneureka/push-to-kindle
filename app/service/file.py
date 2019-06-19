@@ -13,7 +13,7 @@ def create_file(file):
     if file_type not in current_app.config['ACCEPTED_FILE_TYPES']:
         raise ValueError('Not supported file type.')
     if file_type in current_app.config['TRANSFER_FILE_TYPES']:
-        file_type = '.zip'
+        file_type = '.html'
     file_id = str(uuid.uuid4())
     filename = os.path.join(current_app.config['UPLOAD_FOLDER'], '%s%s.%s' % (core_filename, file_type, file_id))
     if not os.path.exists(filename):

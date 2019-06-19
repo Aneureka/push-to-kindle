@@ -22,3 +22,6 @@ logs
 
 # vscode
 .vscode
+
+# tmux
+tmux*.log
