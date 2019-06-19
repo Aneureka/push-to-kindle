@@ -25,9 +25,7 @@
 ## Technology stack
 
 - JQuery（前端就是一把梭）
-
 - Flask
-
 - Redis Queue（用于异步推送，用 Supervisor 管理）
 
 
@@ -48,13 +46,13 @@
 ## Roadmap
 
 - 日志
+- 支持中文文档名 ✅
 
 
 
 ## Special thanks
 
 - [filepond](https://github.com/pqina/filepond)，一个超好用又好看的 JS 文件上传工具
-
 - [eruda](https://github.com/liriliri/eruda)，一个移动端网页控制台，用它调试解决了关键的问题
 
 

@@ -1,6 +1,7 @@
 from flask import request, render_template, current_app
 import requests
 import json
+from smtplib import SMTPDataError
 
 from . import api
 from app.service.mail import send_mail
@@ -53,3 +54,6 @@ def push():
     except requests.exceptions.RequestException as e:
         print(str(e))
         return json.dumps({'code': -1, 'msg': 'Failed to send emails. Please try again.'})
+    except SMTPDataError as e1:
+        print(str(e1))
+        return json.dumps({'code': -2, 'msg': 'File too large.'})

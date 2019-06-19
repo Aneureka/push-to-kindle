@@ -51,9 +51,10 @@
             </div>
         </div>
         <hr />
-        <div class="sentence footnote warning">目前由于技术原因无法处理中文文件名，所以中文文件名会被翻译为英文，非常抱歉大伙儿🙁</div>
-        <div class="sentence footnote">目前支持一次推送 5 个文档，文档加起来最多只能 50M 哦。</div>
-        <div class="sentence footnote">目前支持的文件格式：[.jpeg, .jpg, .gif, .png, .doc, .docx, .html, .htm, .rtf, .mobi, .azw(3), .bmp, .pdf, .txt, .epub]，不支持的文件格式将会被忽略哦。</div>
+        <div class="sentence footnote"><s>目前由于技术原因无法处理中文文件名，所以中文文件名会被翻译为英文</s> 已经解决啦 👏🏻</div>
+        <div class="sentence footnote">目前支持一次推送 5 个文档，单个文档最大 25M，加起来最多只能 50M 哦。</div>
+        <div class="sentence footnote">目前支持的文件格式：[.jpeg, .jpg, .gif, .png, .doc, .docx, .html, .htm, .rtf, .mobi, .azw, .bmp, .pdf, .txt]，不支持的文件格式将会被忽略哦。</div>
+        <div class="sentence footnote">对于 .azw3 和 .epub 格式的文档，可以先用 <a href="https://calibre-ebook.com/" target="_blank">calibre</a> 转换成 .mobi 格式。</div>
         <div class="sentence footnote">本网站承诺保护你的文件隐私安全，文件上传推送后会在一天内自动删除。</div>
         <div class="sentence footnote">如果在使用过程中遇到问题或者有什么建议，请 <a href="mailto:aneureka2@gmail.com" target="_blank">邮件联系作者</a> ，或在 QQ 群 <a href="https://jq.qq.com/?_wv=1027&k=5CrRYmL" >178459233</a> 跟我说哦~</div>
         <div class="sentence footnote site-info">© 2019 PUSH TO KINDLE!&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备18122198号</a></div>
@@ -141,7 +142,7 @@ $(function() {
         labelButtonUndoItemProcessing: '',
         labelButtonRetryItemProcessing: '',
         labelButtonProcessItem: '',
-        maxFileSize: '50MB',
+        maxFileSize: '24MB',
         maxTotalFileSize: '50MB',
         labelMaxFileSizeExceeded: '这个文件太大啦！',
         labelMaxFileSize: '最多最多只能 {filesize} 哦',
@@ -225,8 +226,10 @@ $(function() {
                 if (response.code === 0) {
                     that.text('推送成功啦，待会儿去你的 Kindle 看看吧~');
                     fileIds = [];
-                } else {
+                } else if (response.code === -1) {
                     that.text('呜呜呜推送失败了，重新试试吧');
+                } else if (response.code === -2) {
+                    that.text('文件太大啦！超过 24MB 就不行哦');
                 }
                 setTimeout(() => {that.text(text); that.prop('disabled', false);}, 3000);
             },
@@ -234,7 +237,7 @@ $(function() {
                 if (status === 'timeout') {
                     that.text('请求超时了呢，重新试试看~');
                 } else {
-                    that.text('你是不是还没联网吖...');
+                    that.text('没联网？也可能是服务器崩了...');
                 }
                 setTimeout(() => {that.text(text); that.prop('disabled', false);}, 3000);
             }
