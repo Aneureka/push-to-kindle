@@ -6,7 +6,7 @@ from smtplib import SMTPDataError
 from . import api
 from app.service.mail import send_mail
 from app.service.file import create_file, remove_file, read_file
-
+from app.utils import convert_file_size_to_mb
 
 @api.route('/ping', methods=['GET'])
 def ping():
@@ -49,7 +49,9 @@ def push():
     # send emails
     files = [read_file(file_id) for file_id in file_ids]
     try:
-        send_mail(to_email, current_app.config['MG_EMAIL_FROM'], current_app.config['MG_EMAIL_SUBJECT'], current_app.config['MG_EMAIL_TEXT'], files, current_app.config['MG_DOMAIN_NAME'], current_app.config['MG_API_KEY'])
+        for file in files:
+            file = [file]
+            send_mail(to_email, current_app.config['MG_EMAIL_FROM'], current_app.config['MG_EMAIL_SUBJECT'], current_app.config['MG_EMAIL_TEXT'], file, current_app.config['MG_DOMAIN_NAME'], current_app.config['MG_API_KEY'])
         return json.dumps({'code': 0})
     except requests.exceptions.RequestException as e:
         print(str(e))
