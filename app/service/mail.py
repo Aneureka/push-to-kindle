@@ -17,8 +17,9 @@ def send_mail(to_email, from_email, subject, text, files, domain_name, password)
     msg.attach(MIMEText(text, _charset='utf-8'))
     for file in files:
         file_name, file_content = file
+        print(file_name)
         part = MIMEApplication(file_content)
-        part.add_header('Content-Disposition', 'attachment', filename=('gb2312', '', file_name))
+        part.add_header('Content-Disposition', 'attachment', filename=('gb18030', '', file_name))
         msg.attach(part)
     s = smtplib.SMTP('smtp.mailgun.org', 587)
     s.login('postmaster@%s' % domain_name, password)
@@ -30,7 +31,7 @@ def send_mail(to_email, from_email, subject, text, files, domain_name, password)
         s.close()
 
 
-def send_mail_with_requests(to_email, from_email, subject, text, files, domain_name, auth_api):
+def send_mail_via_api(to_email, from_email, subject, text, files, domain_name, auth_api):
     # send mail with mailgun
     try:
         response = requests.post(
