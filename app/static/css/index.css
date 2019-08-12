@@ -16,7 +16,7 @@ html {
         'Segoe UI Symbol';
     min-height: 100%;
     height: auto;
-    overflow: scroll;
+    overflow: auto;
 }
 
 body {
