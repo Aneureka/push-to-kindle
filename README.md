@@ -6,7 +6,7 @@
 
 
 
-## Startup
+## 开始
 
 访问：https://tokindle.top
 
@@ -14,23 +14,22 @@
 
 
 
-## Is it useful?
+## 为什么我需要这个东西
 
-其实通过官方的方法，用邮箱发送文档没什么问题，但因为懒，想去掉重复无谓的操作。
+其实通过官方的方法用邮箱发送文档没什么问题，但因为懒，想去掉重复无谓的操作
 
-当然，你可以一起让它发挥更大的价值，从提 ISSUE 和 PR 开始~
+如果你觉得有哪些需要改进或新增的功能或点子，欢迎联系我哦
 
 
-
-## Technology stack
+## 技术栈
 
 - JQuery（前端就是一把梭）
 - Flask
-- Redis Queue（用于异步推送，用 Supervisor 管理）
+- ~~Redis Queue（用于异步推送，用 Supervisor 管理）~~
 
 
 
-## Deploy
+## 部署
 
 如果你想学习或重新运行本项目，也可以将 `PUSH TO KINDLE!` 部署到你的服务器上，只需要重新填写配置信息：
 
@@ -44,23 +43,23 @@
 
 
 
-## Roadmap
+## 计划
 
 - 日志
 - 支持中文文档名 ✅
 
 
 
-## Special thanks
+## 特别感谢
 
 - [filepond](https://github.com/pqina/filepond)，一个超好用又好看的 JS 文件上传工具
 - [eruda](https://github.com/liriliri/eruda)，一个移动端网页控制台，用它调试解决了关键的问题
 
 
 
-## Donate
+## 捐赠
 
-觉得 `PUSH TO KINDLE!` 好用的话，可以考虑 `某宝` 请我喝茶，要恰饭的嘛~
+觉得 `PUSH TO KINDLE!` 刚好解决了你的问题，可以考虑 `某宝` 请我喝杯一点点哟~
 
 <img width="200px" src="https://i.loli.net/2019/04/07/5ca9ef413e986.jpg" />
 
