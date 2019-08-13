@@ -1,6 +1,6 @@
 # PUSH TO KINDLE!
 
-![](<https://img.shields.io/badge/author-aneureka-orange.svg>) ![AUR license](https://img.shields.io/aur/license/yaourt.svg) [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+![](<https://img.shields.io/badge/author-aneureka-orange.svg>) [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
 
 `PUSH TO KINDLE!` 是一个简洁优雅的 Kindle 文档推送工具，快来拯救你的泡面板！
 
@@ -62,4 +62,13 @@
 觉得 `PUSH TO KINDLE!` 刚好解决了你的问题，可以考虑 `某宝` 请我喝杯一点点哟~
 
 <img width="200px" src="https://i.loli.net/2019/04/07/5ca9ef413e986.jpg" />
+
+
+
+❤️ 感谢以下各位同学（如果需要匿名请联系我或备注一下哦）
+
+| 昵称  | 金额   | 日期       | 备注                      |
+| ----- | ------ | ---------- | ------------------------- |
+| *逸涵 | ￥5.00 | 2019-08-13 | 肥肠感谢你的大白兔奶糖www |
+
 
