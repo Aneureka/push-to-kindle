@@ -43,28 +43,41 @@
 
 ## 部署（使用 Docker-compose）
 
-1. 调整配置
-
-   修改 `docker-compose.yaml` 文件:
-     - 修改 `MG_API_KEY` 变量设置 `Mailgun` API，如 API 为 `aBcDeF` 则修改为：
-
-        `MG_API_KEY: "aBcDeF"`
-
-     - 修改 `ports` 底下 `8080` 端口设置运行的端口，如运行于 `80` 端口则修改为：
-
-        `- '80:8001'`
-
-2. 构建 Docker 镜像
+1. 构建 Docker 镜像
 
    ```bash
    docker-compose build
    ```
 
-3. 运行镜像
+2. 创建并调整配置
+
+   复制 `.env.example` 为 `.env` 并修改相应内容
+
+   - 设置 `Mailgun` API
+
+        修改 `.env` 文件中 `MG_API_KEY` 变量以设置 `Mailgun` API。
+
+        如 API 为 `aBcDeF` 则修改为：`MG_API_KEY=aBcDeF`。
+
+   - 修改运行端口或绑定域名（可选）
+
+        - 修改 `PRODUCTION_HOST` 设置服务部署地址。
+          如部署至 `https://tokindle.top` 则修改为：
+          `PRODUCTION_HOST=https://tokindle.top`。
+
+        - 修改 `docker-compose.yaml` 文件 `ports` 下 `8080` 端口设置运行的端口。
+          如运行于 `80` 端口则修改为：`- '80:8001'`
+
+        > 如不借助反向代理，则 `PRODUCTION_HOST` 的端口必须与 `docker-compose.yaml` 文件中设置的端口一致
+
+3. 启动 docker-compose
 
    ```bash
    docker-compose up -d
    ```
+
+   > 修改 `.env` 或 `docker-compose.yaml` 文件中的配置后，
+   > 只需重新执行 `docker-compose up -d` 命令即可更新配置。
 
 ## 计划
 

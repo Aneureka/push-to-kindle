@@ -6,8 +6,8 @@ volumes:
 services:
   web:
     build: .
-    environment:
-      MG_API_KEY: "secret"
+    env_file:
+      - .env
     ports:
       - "8080:8001"
     volumes:

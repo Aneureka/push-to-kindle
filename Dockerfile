@@ -19,11 +19,9 @@ ENV FLASK_DEBUG=0
 
 EXPOSE 8001
 
+CMD [ "sh", "-c", "uwsgi uwsgi-docker.ini" ]
+
 COPY . .
 
-ENV MG_API_KEY="secret"
-ENV MG_EMAIL_TO_FOR_TEST="secret@kindle.cn"
-
-ENV PRODUCTION_HOST="http://127.0.0.1:8001"
-
-CMD [ "sh", "-c", "uwsgi uwsgi.ini" ]
+# ENV MG_API_KEY
+# ENV PRODUCTION_HOST
