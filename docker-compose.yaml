@@ -1,0 +1,15 @@
+version: '3'
+
+volumes:
+  uploads:
+
+services:
+  web:
+    build: .
+    environment:
+      MG_API_KEY: "secret"
+    ports:
+      - "8080:8001"
+    volumes:
+      - uploads:/tmp/push-to-kindle/
+    restart: unless-stopped
