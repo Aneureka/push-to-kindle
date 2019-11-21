@@ -41,7 +41,30 @@
 - ~~配置 supervisor 将 rq 运行起来，可参考 [官方文档](http://python-rq.org/patterns/supervisor/)~~
 - 运行 `bash run.sh` 或 `bash run_server.sh`，启动你的项目吧~
 
+## 部署（使用 Docker-compose）
 
+1. 调整配置
+
+   修改 `docker-compose.yaml` 文件:
+     - 修改 `MG_API_KEY` 变量设置 `Mailgun` API，如 API 为 `aBcDeF` 则修改为：
+
+        `MG_API_KEY: "aBcDeF"`
+
+     - 修改 `ports` 底下 `8080` 端口设置运行的端口，如运行于 `80` 端口则修改为：
+
+        `- '80:8001'`
+
+2. 构建 Docker 镜像
+
+   ```bash
+   docker-compose build
+   ```
+
+3. 运行镜像
+
+   ```bash
+   docker-compose up -d
+   ```
 
 ## 计划
 
@@ -70,6 +93,3 @@
 | 昵称  | 金额   | 日期       | 备注                      |
 | ----- | ------ | ---------- | ------------------------- |
 | *逸涵 | ￥5.00 | 2019-08-13 | 肥肠感谢你的大白兔奶糖www |
-
-
-
