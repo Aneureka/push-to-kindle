@@ -8,9 +8,6 @@ COPY requirements.txt ./
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-ENV LANG='en_US.UTF-8'
-ENV LC_ALL='en_US.UTF-8'
-
 ENV UPLOAD_FOLDER="/tmp/push-to-kindle"
 
 ENV FLASK_APP=manager.py
