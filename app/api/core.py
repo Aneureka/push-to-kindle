@@ -8,18 +8,25 @@ from app.service.mail import send_mail
 from app.service.file import create_file, remove_file, read_file
 from app.utils import convert_file_size_to_mb
 
+
 @api.route('/ping', methods=['GET'])
 def ping():
-    return 'Ping successfully!'
+    return render_template('banner.html')
 
 
 @api.route('/', methods=['GET'])
 def index():
-    return render_template('index.html', title=current_app.config['APP_NAME'], from_user=current_app.config['MG_EMAIL_FROM'], host=current_app.config['HOST'])
+    return render_template(
+        'index.html', 
+        title=current_app.config['APP_NAME'], 
+        from_user=current_app.config['MG_EMAIL_FROM'], 
+        host=current_app.config['HOST']
+    )
 
 
 @api.route('/files', methods=['POST', 'DELETE'])
 def handle_files():
+    current_app.logger.warn('warning!!!')
     if request.method == 'POST':
         file = request.files['file']
         # validate file type

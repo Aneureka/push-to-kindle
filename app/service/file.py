@@ -3,8 +3,6 @@ import glob
 import uuid
 import re
 from flask import current_app
-# from app.utils import translate
-
 
 def create_file(file):
     origin_filename = file.filename.encode('ascii', 'replace').decode('utf-8')
@@ -31,13 +29,6 @@ def read_file(file_id):
     filename = _get_filename(file_id)
     origin_filename = os.path.splitext(filename)[0]
     origin_filename = origin_filename.split('/')[-1]
-    # translate to English
-    # pattern = re.compile('[\u00A1-\uFFFF]')
-    # core_filename, file_type = os.path.splitext(origin_filename)
-    # check if filename contains utf-8 characters
-    # if pattern.search(core_filename) is not None:
-    #     core_filename = translate(core_filename)
-    # origin_filename = core_filename + file_type
     if filename:
         with open(filename, 'rb') as f:
             return origin_filename, f.read()

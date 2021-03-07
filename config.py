@@ -23,14 +23,13 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    HOST = 'http://127.0.0.1:5000'
+    HOST = 'http://127.0.0.1:8001'
     MG_EMAIL_TO = os.environ.get('MG_EMAIL_TO_FOR_TEST')
 
 
 class ProductionConfig(Config):
     DEBUG = False
     HOST = os.environ.get('PRODUCTION_HOST')
-    pass
 
 
 config = {

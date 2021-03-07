@@ -1,19 +1,20 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
     <title>{{ title }}</title>
-    <link rel="shortcut icon" type="image/png" href="/static/images/icons/favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="/static/images/icons/favicon.png" />
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/filepond/dist/filepond.css">
     <link rel="stylesheet" type="text/css" href="/static/css/index.css">
     <script>
         var _hmt = _hmt || [];
-        (function() {
-          var hm = document.createElement("script");
-          hm.src = "https://hm.baidu.com/hm.js?224bfd8eb20154a2746ac0c2a267d26c";
-          var s = document.getElementsByTagName("script")[0]; 
-          s.parentNode.insertBefore(hm, s);
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?224bfd8eb20154a2746ac0c2a267d26c";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
         })();
     </script>
 </head>
@@ -21,18 +22,23 @@
 <body>
     <div class="main">
         <div class="title"><img src="/static/images/icons/favicon.png" class="logo"> {{ title }}</div>
-        <div class="sentence desc"><span class="highlight">{{ title }}</span> 是一个<a href="https://github.com/Aneureka/push-to-kindle" target="_blank">开源</a>工具，可以往你的 Kindle 上推送文档，只要👇四步你的泡面板就多了一个用处啦。</div>
+        <div class="sentence desc"><span class="highlight">{{ title }}</span> 是一个<a
+                href="https://github.com/Aneureka/push-to-kindle" target="_blank">开源</a>工具，可以往你的 Kindle
+            上推送文档，只要👇四步你的泡面板就多了一个用处啦。</div>
         <div class="step">
             <span class="number">1</span>
             <div class="content">
-                <div class="sentence">将 <span class="click-to-copy highlight">{{ from_user }}</span> 添加到你亚马逊账号的已认可发件人电子邮箱列表中。<a href="https://zhuanlan.zhihu.com/p/61753941" target="_blank">啥意思？</a></div>
+                <div class="sentence">将 <span class="click-to-copy highlight">{{ from_user }}</span>
+                    添加到你亚马逊账号的已认可发件人电子邮箱列表中。<a href="https://zhuanlan.zhihu.com/p/61753941" target="_blank">啥意思？</a>
+                </div>
             </div>
         </div>
         <div class="step">
             <span class="number">2</span>
             <div class="content">
-                <input type="email" name="email" id="email" placeholder="💁把你的 Kindle 邮箱告诉我吧"/>
-                <div class="notification warning" id="email-warning">你的 Kindle 邮箱会不会填错啦，应该是类似这样的格式：<span class="highlight">ilove@kindle.cn</span></div>
+                <input type="email" name="email" id="email" placeholder="💁把你的 Kindle 邮箱告诉我吧" />
+                <div class="notification warning" id="email-warning">你的 Kindle 邮箱会不会填错啦，应该是类似这样的格式：<span
+                        class="highlight">ilove@kindle.cn</span></div>
             </div>
         </div>
         <div class="step">
@@ -53,207 +59,212 @@
         <hr />
         <div class="sentence footnote"><s>目前由于技术原因无法处理中文文件名，所以中文文件名会被翻译为英文</s> 已经解决啦 👏🏻</div>
         <div class="sentence footnote">目前支持一次推送 5 个文档，单个文档最大只能 24M 哦。</div>
-        <div class="sentence footnote">目前<a href="https://www.amazon.cn/gp/help/customer/display.html?nodeId=200767340" target="_blank">支持的文件格式</a>：[.jpeg, .jpg, .gif, .png, .doc, .docx, .html, .htm, .rtf, .mobi, .azw, .bmp, .pdf, .txt]，其他格式的文件将会被忽略哦。</div>
-        <div class="sentence footnote">对于 .azw3 和 .epub 格式的文档，可以先用 <a href="https://calibre-ebook.com/" target="_blank">calibre</a> 转换成 .mobi 格式。</div>
+        <div class="sentence footnote">目前<a href="https://www.amazon.cn/gp/help/customer/display.html?nodeId=200767340"
+                target="_blank">支持的文件格式</a>：[.jpeg, .jpg, .gif, .png, .doc, .docx, .html, .htm, .rtf, .mobi, .azw, .bmp,
+            .pdf, .txt]，其他格式的文件将会被忽略哦。</div>
+        <div class="sentence footnote">对于 .azw3 和 .epub 格式的文档，可以先用 <a href="https://calibre-ebook.com/"
+                target="_blank">calibre</a> 转换成 .mobi 格式。</div>
         <div class="sentence footnote">本网站承诺保护你的文件隐私安全，文件上传后会在一天内自动删除。</div>
-        <div class="sentence footnote">如果在使用过程中遇到问题或者有什么建议，请 <a href="mailto:aneureka2@gmail.com" target="_blank">邮件联系作者</a> ，或在 QQ 群 <a href="https://jq.qq.com/?_wv=1027&k=5CrRYmL" >178459233</a> 跟我说哦~</div>
-        <div class="sentence footnote site-info">© <span id="year">2019</span> PUSH TO KINDLE!&nbsp;&nbsp;&nbsp;&nbsp;<a href="http://www.miitbeian.gov.cn" target="_blank">粤ICP备18122198号</a></div>
+        <div class="sentence footnote">如果在使用过程中遇到问题或者有什么建议，请 <a href="mailto:aneureka2@gmail.com"
+                target="_blank">邮件联系作者</a> ，或在 QQ 群 <a href="https://jq.qq.com/?_wv=1027&k=5CrRYmL">178459233</a> 跟我说哦~
+        </div>
+        <div class="sentence footnote site-info">© <span id="year">2019</span> PUSH TO KINDLE!&nbsp;&nbsp;&nbsp;&nbsp;<a
+                href="http://www.beian.miit.gov.cn" target="_blank">粤ICP备18122198号</a></div>
     </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-<script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
-<script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>    
-<script src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
-<script src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
-<!-- <script src="https://cdn.bootcss.com/eruda/1.5.2/eruda.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
+    <script src="https://unpkg.com/jquery-filepond/filepond.jquery.js"></script>
+    <script
+        src="https://unpkg.com/filepond-plugin-file-validate-size/dist/filepond-plugin-file-validate-size.js"></script>
+    <script
+        src="https://unpkg.com/filepond-plugin-file-validate-type/dist/filepond-plugin-file-validate-type.js"></script>
+    <!-- <script src="https://cdn.bootcss.com/eruda/1.5.2/eruda.min.js"></script> -->
 
-<script>
+    <script>
 
-$(function() {
-    // debug mode
-    // eruda.init();
-    // function definition
-    let isValidEmail = (email) => {
-        // return true;
-        let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(kindle\.[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    };
-    let copyToClipboard = (element) => {
-        let $temp = $('<input>');
-        $('body').append($temp);
-        $temp.val($(element).text()).select();
-        console.log($(element).text());
-        document.execCommand('copy');
-        $temp.remove();
-    };
+        $(function () {
+            // debug mode
+            // eruda.init();
+            // function definition
+            let isValidEmail = (email) => {
+                // return true;
+                let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(kindle\.[a-zA-Z]{2,}))$/;
+                return re.test(String(email).toLowerCase());
+            };
+            let copyToClipboard = (element) => {
+                let $temp = $('<input>');
+                $('body').append($temp);
+                $temp.val($(element).text()).select();
+                console.log($(element).text());
+                document.execCommand('copy');
+                $temp.remove();
+            };
 
-    // initialization
-    const fadeDuration = 500;
-    localStorage.setItem('uniqueFileIds', JSON.stringify([]));
-    let email = localStorage.getItem('email');
-    if (email) {
-        $('#email').val(email);
-        email.length === 0 || isValidEmail(email) ? $('#email-warning').fadeOut(fadeDuration) : $('#email-warning').fadeIn(fadeDuration);
-    }
-    let fileIds = [];
-    $('.click-to-copy').click(function() {
-        let that = $(this);
-        copyToClipboard(that);
-        let text = that.text();
-        let color = that.css('color');
-        that.text(' 已经复制到剪贴板啦! ');
-        that.css('color', '#529467');
-        that.css('pointer-events', 'none');
-        setTimeout(function() {that.text(text); that.css('color', color); that.css('pointer-events', 'auto');}, 1000);
-    });
-
-    // email
-    $('#email').change((e) => {
-        email = e.target.value;
-        localStorage.setItem('email', email);
-        email.length === 0 || isValidEmail(email) ? $('#email-warning').fadeOut(fadeDuration) : $('#email-warning').fadeIn(fadeDuration);
-    });
-
-    // file
-    $.fn.filepond.registerPlugin(FilePondPluginFileValidateSize, FilePondPluginFileValidateType);
-    $('#file').filepond({
-        maxFiles: 5,
-        dropValidation: true,
-        allowDrag: true,
-        allowMultiple: true,
-        labelIdle: '把文件拖到这儿 或 浏览本地文件',
-        labelInvalidField: '包含了无效文件',
-        labelFileWaitingForSize: '正在获取文件大小',
-        labelFileSizeNotAvailable: '获取不到orz',
-        labelFileLoading: '正在加载文件',
-        labelFileLoadError: '加载错误！',
-        labelFileProcessing: '文件上传中',
-        labelFileProcessingComplete: '上传完成',
-        labelFileProcessingAborted: '取消上传啦',
-        labelFileProcessingError: '上传时遇到错误',
-        labelFileProcessingRevertError: '撤销时遇到错误',
-        labelFileRemoveError: '删除时遇到错误',
-        labelTapToCancel: '取消 👉',
-        labelTapToRetry: '重试 👉',
-        labelTapToUndo: '撤销 👉',
-        labelButtonRemoveItem: '',
-        labelButtonAbortItemLoad: '',
-        labelButtonRetryItemLoad: '',
-        labelButtonAbortItemProcessing: '',
-        labelButtonUndoItemProcessing: '',
-        labelButtonRetryItemProcessing: '',
-        labelButtonProcessItem: '',
-        maxFileSize: '24MB',
-        maxTotalFileSize: '50MB',
-        labelMaxFileSizeExceeded: '这个文件太大啦！',
-        labelMaxFileSize: '最多最多只能 {filesize} 哦',
-        labelMaxTotalFileSizeExceeded: '文件加起来太大了',
-        labelMaxTotalFileSize: '最多只能 {filesize} 啦',
-        server: {
-            url: '{{ host }}',
-            process: {
-                url: '/files',
-                method: 'POST',
-                onload: (response) => {
-                    response = JSON.parse(response);
-                    if (response.code === 0) {
-                        let fileId = response.data;
-                        fileIds.push(fileId);
-                        return fileId;
-                    } else if (response.code === -1) {
-                        $('#file-type-warning').fadeIn(fadeDuration);
-                        setTimeout(() => {$('#file-type-warning').fadeOut(fadeDuration);}, 3000);
-                        console.log(response.msg);
-                    } else {
-                        console.log(response.msg);
-                    }
-                },
-                onerror: (response) => {
-                    console.log(response);
-                }
-            },
-            revert: {
-                url: '/files',
-                onload: (response) => {
-                    response = JSON.parse(response);
-                    let fileId = response.data;
-                    let index = fileIds.indexOf(fileId);
-                    if (index > -1) {
-                        fileIds.splice(index, 1)
-                    }
-                    return fileId;
-                }
-            },
-            fetch: null,
-            load: null,
-            restore: null
-        }
-    });
-
-    $('#push-button').click(function() {
-        let that = $(this);
-        // check input fields
-        let emailValid = isValidEmail(email);
-        let filesValid = fileIds.length > 0;
-
-        if (!emailValid) {
-            $('#email-error').fadeIn(fadeDuration);
-            return;
-        } else {
-            $('#email-error').fadeOut(fadeDuration);
-        }
-
-        if (!filesValid) {
-            $('#files-error').fadeIn(fadeDuration);
-            return;
-        } else {
-            $('#files-error').fadeOut(fadeDuration);
-        }
-
-        let text = that.text();
-        that.text('正在努力推送中...');
-        that.prop('disabled', true);
-        $.ajax({
-            url: '/push',
-            type: 'POST',
-            data: JSON.stringify({
-                email: email,
-                fileIds: fileIds
-            }),
-            timeout: 120000,
-            contentType: 'application/json; charset=utf-8',
-            success: (response) => {
-                response = JSON.parse(response);
-                if (response.code === 0) {
-                    that.text('推送成功啦，待会儿去你的 Kindle 看看吧~');
-                    fileIds = [];
-                } else if (response.code === -1) {
-                    that.text('呜呜呜推送失败了，重新试试吧');
-                } else if (response.code === -2) {
-                    that.text('文件太大啦！超过 24MB 就不行哦');
-                }
-                setTimeout(() => {that.text(text); that.prop('disabled', false);}, 3000);
-            },
-            error: (request, status, errorThrown) => {
-                if (status === 'timeout') {
-                    that.text('请求超时了呢，重新试试看~');
-                } else {
-                    that.text('没联网？也可能是服务器崩了...');
-                }
-                setTimeout(() => {that.text(text); that.prop('disabled', false);}, 3000);
+            // initialization
+            const fadeDuration = 500;
+            localStorage.setItem('uniqueFileIds', JSON.stringify([]));
+            let email = localStorage.getItem('email');
+            if (email) {
+                $('#email').val(email);
+                email.length === 0 || isValidEmail(email) ? $('#email-warning').fadeOut(fadeDuration) : $('#email-warning').fadeIn(fadeDuration);
             }
+            let fileIds = [];
+            $('.click-to-copy').click(function () {
+                let that = $(this);
+                copyToClipboard(that);
+                let text = that.text();
+                let color = that.css('color');
+                that.text(' 已经复制到剪贴板啦! ');
+                that.css('color', '#529467');
+                that.css('pointer-events', 'none');
+                setTimeout(function () { that.text(text); that.css('color', color); that.css('pointer-events', 'auto'); }, 1000);
+            });
+
+            // email
+            $('#email').change((e) => {
+                email = e.target.value;
+                localStorage.setItem('email', email);
+                email.length === 0 || isValidEmail(email) ? $('#email-warning').fadeOut(fadeDuration) : $('#email-warning').fadeIn(fadeDuration);
+            });
+
+            // file
+            $.fn.filepond.registerPlugin(FilePondPluginFileValidateSize, FilePondPluginFileValidateType);
+            $('#file').filepond({
+                maxFiles: 5,
+                dropValidation: true,
+                allowDrag: true,
+                allowMultiple: true,
+                labelIdle: '把文件拖到这儿 或 浏览本地文件',
+                labelInvalidField: '包含了无效文件',
+                labelFileWaitingForSize: '正在获取文件大小',
+                labelFileSizeNotAvailable: '获取不到orz',
+                labelFileLoading: '正在加载文件',
+                labelFileLoadError: '加载错误！',
+                labelFileProcessing: '文件上传中',
+                labelFileProcessingComplete: '上传完成',
+                labelFileProcessingAborted: '取消上传啦',
+                labelFileProcessingError: '上传时遇到错误',
+                labelFileProcessingRevertError: '撤销时遇到错误',
+                labelFileRemoveError: '删除时遇到错误',
+                labelTapToCancel: '取消 👉',
+                labelTapToRetry: '重试 👉',
+                labelTapToUndo: '撤销 👉',
+                labelButtonRemoveItem: '',
+                labelButtonAbortItemLoad: '',
+                labelButtonRetryItemLoad: '',
+                labelButtonAbortItemProcessing: '',
+                labelButtonUndoItemProcessing: '',
+                labelButtonRetryItemProcessing: '',
+                labelButtonProcessItem: '',
+                maxFileSize: '24MB',
+                maxTotalFileSize: '50MB',
+                labelMaxFileSizeExceeded: '这个文件太大啦！',
+                labelMaxFileSize: '最多最多只能 {filesize} 哦',
+                labelMaxTotalFileSizeExceeded: '文件加起来太大了',
+                labelMaxTotalFileSize: '最多只能 {filesize} 啦',
+                server: {
+                    url: '{{ host }}',
+                    process: {
+                        url: '/files',
+                        method: 'POST',
+                        onload: (response) => {
+                            response = JSON.parse(response);
+                            if (response.code === 0) {
+                                let fileId = response.data;
+                                fileIds.push(fileId);
+                                return fileId;
+                            } else if (response.code === -1) {
+                                $('#file-type-warning').fadeIn(fadeDuration);
+                                setTimeout(() => { $('#file-type-warning').fadeOut(fadeDuration); }, 3000);
+                                console.log(response.msg);
+                            } else {
+                                console.log(response.msg);
+                            }
+                        },
+                        onerror: (response) => {
+                            console.log(response);
+                        }
+                    },
+                    revert: {
+                        url: '/files',
+                        onload: (response) => {
+                            response = JSON.parse(response);
+                            let fileId = response.data;
+                            let index = fileIds.indexOf(fileId);
+                            if (index > -1) {
+                                fileIds.splice(index, 1)
+                            }
+                            return fileId;
+                        }
+                    },
+                    fetch: null,
+                    load: null,
+                    restore: null
+                }
+            });
+
+            $('#push-button').click(function () {
+                let that = $(this);
+                // check input fields
+                let emailValid = isValidEmail(email);
+                let filesValid = fileIds.length > 0;
+
+                if (!emailValid) {
+                    $('#email-error').fadeIn(fadeDuration);
+                    return;
+                } else {
+                    $('#email-error').fadeOut(fadeDuration);
+                }
+
+                if (!filesValid) {
+                    $('#files-error').fadeIn(fadeDuration);
+                    return;
+                } else {
+                    $('#files-error').fadeOut(fadeDuration);
+                }
+
+                let text = that.text();
+                that.text('正在努力推送中...');
+                that.prop('disabled', true);
+                $.ajax({
+                    url: '/push',
+                    type: 'POST',
+                    data: JSON.stringify({
+                        email: email,
+                        fileIds: fileIds
+                    }),
+                    timeout: 120000,
+                    contentType: 'application/json; charset=utf-8',
+                    success: (response) => {
+                        response = JSON.parse(response);
+                        if (response.code === 0) {
+                            that.text('推送成功啦，待会儿去你的 Kindle 看看吧~');
+                            fileIds = [];
+                        } else if (response.code === -1) {
+                            that.text('呜呜呜推送失败了，重新试试吧');
+                        } else if (response.code === -2) {
+                            that.text('文件太大啦！超过 24MB 就不行哦');
+                        }
+                        setTimeout(() => { that.text(text); that.prop('disabled', false); }, 3000);
+                    },
+                    error: (request, status, errorThrown) => {
+                        if (status === 'timeout') {
+                            that.text('请求超时了呢，重新试试看~');
+                        } else {
+                            that.text('没联网？也可能是服务器崩了...');
+                        }
+                        setTimeout(() => { that.text(text); that.prop('disabled', false); }, 3000);
+                    }
+                });
+            });
+
+            $('#year').text(new Date().getFullYear());
+
         });
-    });
 
-    $('#year').text(new Date().getFullYear());
-
-});
-
-</script>
+    </script>
 
 </body>
+
 </html>
-
-
-
-

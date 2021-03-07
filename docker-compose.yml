@@ -1,0 +1,16 @@
+version: "3.9"
+
+volumes:
+  uploads:
+
+services:
+  web:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8001:8001"
+    volumes:
+      - uploads:/tmp/push-to-kindle/
+    restart: unless-stopped
+    image: aneureka/push-to-kindle
