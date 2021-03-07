@@ -21,10 +21,12 @@
 如果你觉得有哪些需要改进或新增的功能或点子，欢迎联系我哦
 
 
+
 ## 技术栈
 
 - JQuery（前端就是一把梭）
 - Flask
+- Docker
 - ~~Redis Queue（用于异步推送，用 Supervisor 管理）~~
 
 
@@ -33,20 +35,16 @@
 
 如果你想学习或重新运行本项目，也可以将 `PUSH TO KINDLE!` 部署到你的服务器上，只需要重新填写配置信息：
 
-- 在项目文件夹创建 virtualenv Python3 环境，命名为 venv
-- 安装项目依赖： `pip3 install -r requirements`
-- 修改 `config.py` （需要注册并配置 [Mailgun](https://www.mailgun.com/) ）
-- 如果运行在本地测试环境，将 `run.sh.example` 重命名为 `run.sh` ，并修改它
-- 如果运行在服务器环境，将 `run_server.sh.example` 和 `uwsgi.ini.example` 重命名为 `run_server.sh` 和 `uwsgi.ini`，并进行相应的修改
-- ~~配置 supervisor 将 rq 运行起来，可参考 [官方文档](http://python-rq.org/patterns/supervisor/)~~
-- 运行 `bash run.sh` 或 `bash run_server.sh`，启动你的项目吧~
+- 前提条件：了解 Docker 及其部署方式
+- 将 `.env.example` 重命名为 `.env`，并修改为自己的配置
+- 运行 `docker-compose up`
 
 
 
 ## 计划
 
 - 支持中文文档名 ✅
-- 文档分享（计划中）
+- 文档分享（还没做）
 
 
 

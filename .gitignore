@@ -1,27 +1,17 @@
-# idea
+# IDE 
 .idea
-*.ini
 *.pyc
 logs
 .DS_Store
+.vscode
+tmux*.log
 
 # virtual environment
-venv
-
-# py cache
 __pycache__
-
-# script
-*.sh
-.tmp
-
+venv
 logs
 
-# uwsgi
-*.ini
-
-# vscode
-.vscode
-
-# tmux
-tmux*.log
+# script & configuration
+*.sh
+.tmp
+.env
