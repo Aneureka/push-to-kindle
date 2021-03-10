@@ -1,2 +1,8 @@
-*.example
+.idea
+logs
+.DS_Store
+.vscode
+*.log
+__pycache__
 *.pyc
+

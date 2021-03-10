@@ -1,13 +1,13 @@
 # IDE 
 .idea
-*.pyc
 logs
 .DS_Store
 .vscode
-tmux*.log
+*.log
+__pycache__
+*.pyc
 
 # virtual environment
-__pycache__
 venv
 logs
 

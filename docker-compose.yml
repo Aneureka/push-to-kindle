@@ -5,10 +5,10 @@ volumes:
 
 services:
   web:
+    image: aneureka/push-to-kindle:latest
     build: .
     ports:
       - "8001:8001"
     volumes:
       - uploads:/tmp/push-to-kindle/
     restart: unless-stopped
-    image: aneureka/push-to-kindle
