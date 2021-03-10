@@ -1,8 +1,5 @@
 version: "3"
 
-volumes:
-  uploads:
-
 services:
   web:
     image: aneureka/push-to-kindle:latest
@@ -10,5 +7,5 @@ services:
     ports:
       - "8001:8001"
     volumes:
-      - uploads:/tmp/push-to-kindle/
+      - /tmp/push-to-kindle:/tmp/push-to-kindle/
     restart: unless-stopped

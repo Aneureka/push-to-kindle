@@ -3,18 +3,36 @@ import os
 
 class Config:
     # app
-    APP_NAME = 'PUSH TO KINDLE!'
-    UPLOAD_FOLDER = os.environ.get('UPLOAD_FOLDER')
-    ACCEPTED_FILE_TYPES = ['.jpeg', '.jpg', '.gif', '.png', '.doc', '.docx', '.html', '.htm', '.rtf', '.mobi', '.azw', '.azw3', '.bmp', '.pdf', '.txt', '.epub', '.zip']
-    TRANSFER_FILE_TYPES = ['.epub']
+    APP_NAME = "PUSH TO KINDLE!"
+    UPLOAD_FOLDER = os.environ.get("UPLOAD_FOLDER")
+    ACCEPTED_FILE_TYPES = [
+        ".jpeg",
+        ".jpg",
+        ".gif",
+        ".png",
+        ".doc",
+        ".docx",
+        ".html",
+        ".htm",
+        ".rtf",
+        ".mobi",
+        ".azw",
+        ".azw3",
+        ".bmp",
+        ".pdf",
+        ".txt",
+        ".epub",
+        ".zip",
+    ]
+    TRANSFER_FILE_TYPES = [".epub"]
     MAX_CONTENT_LENGTH = 120 * 1024 * 1024
     # mailgun
-    MG_DOMAIN_NAME = 'push.tokindle.top'
-    MG_API_KEY = os.environ.get('MG_API_KEY')
-    MG_EMAIL_FROM = 'please@%s' % MG_DOMAIN_NAME
-    MG_EMAIL_FROM_USER = '%s <%s>' % (APP_NAME, MG_EMAIL_FROM)
-    MG_EMAIL_SUBJECT = 'convert'
-    MG_EMAIL_TEXT = 'Documents have been pushed to your kindle.'
+    MG_DOMAIN_NAME = "push.tokindle.top"
+    MG_API_KEY = os.environ.get("MG_API_KEY")
+    MG_EMAIL_FROM = "please@%s" % MG_DOMAIN_NAME
+    MG_EMAIL_FROM_USER = "%s <%s>" % (APP_NAME, MG_EMAIL_FROM)
+    MG_EMAIL_SUBJECT = "convert"
+    MG_EMAIL_TEXT = "Documents have been pushed to your kindle."
 
     @staticmethod
     def init_app(app):
@@ -23,17 +41,17 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    HOST = 'http://127.0.0.1:8001'
-    MG_EMAIL_TO = os.environ.get('MG_EMAIL_TO_FOR_TEST')
+    HOST = "http://127.0.0.1:8001"
+    MG_EMAIL_TO = os.environ.get("MG_EMAIL_TO_FOR_TEST")
 
 
 class ProductionConfig(Config):
     DEBUG = False
-    HOST = os.environ.get('PRODUCTION_HOST')
+    HOST = os.environ.get("PRODUCTION_HOST")
 
 
 config = {
-    'development': DevelopmentConfig,
-    'production': ProductionConfig,
-    'default': DevelopmentConfig
+    "development": DevelopmentConfig,
+    "production": ProductionConfig,
+    "default": DevelopmentConfig,
 }

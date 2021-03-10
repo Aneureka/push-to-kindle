@@ -1,13 +1,11 @@
 import math
+
 from googletrans import Translator
 
-
-_translator = Translator(service_urls=[
-    'translate.google.cn'
-])
+_translator = Translator(service_urls=["translate.google.cn"])
 
 
-def translate(text, src='zh-CN', dest='en'):
+def translate(text, src="zh-CN", dest="en"):
     return _translator.translate(text, src=src, dest=dest).text
 
 
