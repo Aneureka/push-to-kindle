@@ -1,6 +1,7 @@
 # PUSH TO KINDLE!
 
-![](<https://img.shields.io/badge/author-aneureka-orange.svg>) [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)
+![](<https://img.shields.io/badge/author-aneureka-orange.svg>) [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE) [![GitHub Super-Linter](https://github.com/aneureka/push-to-kindle/workflows/super-linter/badge.svg)](https://github.com/marketplace/actions/super-linter)
+
 
 `PUSH TO KINDLE!` 是一个简洁优雅的 Kindle 文档推送工具，快来拯救你的泡面板！
 
