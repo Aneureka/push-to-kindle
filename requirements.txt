@@ -6,7 +6,7 @@ chardet==3.0.4
 Click==7.0
 croniter==0.3.29
 Flask==1.0.2
-Flask-Cors==3.0.7
+Flask-Cors==3.0.9
 Flask-Script==2.0.6
 googletrans==2.4.0
 idna==2.8
