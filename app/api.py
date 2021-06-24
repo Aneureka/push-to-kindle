@@ -2,13 +2,14 @@ import json
 from smtplib import SMTPDataError
 
 import requests
-from flask import current_app, render_template, request
+from flask import current_app, render_template, request, Blueprint
+
 
 from app.service.file import create_file, read_file, remove_file
 from app.service.mail import send_mail
 from app.utils import convert_file_size_to_mb
 
-from . import api
+api = Blueprint("api", __name__)
 
 
 @api.route("/ping", methods=["GET"])

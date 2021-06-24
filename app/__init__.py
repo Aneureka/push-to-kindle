@@ -16,8 +16,8 @@ def create_app(config_name="default"):
     config[config_name].init_app(app)
 
     # blueprint
-    from .api import api as api_blueprint
+    from app.api import api
 
-    app.register_blueprint(api_blueprint)
+    app.register_blueprint(api)
 
     return app
