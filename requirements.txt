@@ -4,6 +4,6 @@ Flask-Script==2.0.6
 googletrans==2.4.0
 jinja2>=2.11.3
 requests==2.22.0
-urllib3==1.25.3
+urllib3==1.26.5
 uWSGI==2.0.18
 Werkzeug==0.15.3
