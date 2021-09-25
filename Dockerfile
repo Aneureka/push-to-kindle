@@ -1,6 +1,6 @@
-FROM python:3.7-alpine
+FROM python:3.7
 WORKDIR /app
-RUN apk add --no-cache gcc musl-dev linux-headers
+RUN apt-get install gcc
 COPY . .
 RUN pip install --no-cache-dir -r requirements.txt
 CMD [ "sh", "-c", "uwsgi uwsgi.ini" ]
