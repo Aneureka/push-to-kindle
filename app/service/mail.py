@@ -1,12 +1,10 @@
 import smtplib
-import time
 from email.mime.application import MIMEApplication
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from smtplib import SMTPDataError
 
 import requests
-from flask import app, current_app
 
 
 def send_mail(to_email, from_email, subject, text, files, domain_name, password):

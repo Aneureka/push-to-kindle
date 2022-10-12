@@ -1,6 +1,6 @@
 import logging
 
-from flask import Flask, current_app
+from flask import Flask
 from flask_cors import CORS
 
 from config import config

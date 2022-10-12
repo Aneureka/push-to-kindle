@@ -1,6 +1,5 @@
 import glob
 import os
-import re
 import uuid
 
 from flask import current_app
