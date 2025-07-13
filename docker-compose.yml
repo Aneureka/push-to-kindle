@@ -1,9 +1,8 @@
-version: "3"
-
 services:
   web:
     image: aneureka/push-to-kindle:latest
     build: .
+    env_file: .env
     ports:
       - "8001:8001"
     volumes:
